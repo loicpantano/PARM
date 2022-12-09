@@ -1,5 +1,5 @@
 # Projet PARM SI3
-
+#
 Voir la documentation en PDF dans le dossier `doc`.
 
 ## En-têtes C
