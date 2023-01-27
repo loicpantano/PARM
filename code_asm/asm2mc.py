@@ -314,6 +314,7 @@ def main() -> None:
 
             else:
                 print(f"Test passed for {asm_file}")
+                
 
 # -------------------- MAIN CALL --------------------
 
