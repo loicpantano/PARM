@@ -16,7 +16,7 @@ TESTS_PATH = "test_integration/"
 
 
 class Parser:
-    
+
     def __init__(self):
         pass
 
@@ -281,14 +281,14 @@ class Parser:
             fun = locals()["_Parser__" + keyword.lower()]
             binary = fun(instruction[1:], i)
             machine_code += Parser.__convert(binary, 2,
-                                    16).zfill(DEFAULT_HEXADECIMAL_SIZE) + " "
+                                             16).zfill(DEFAULT_HEXADECIMAL_SIZE) + " "
 
             i += 1
 
         return machine_code[:-1]
 
 
-    # -------------------- MAIN FUNCTION --------------------
+# -------------------- MAIN FUNCTION --------------------
 
 
 def main() -> None:
@@ -314,7 +314,7 @@ def main() -> None:
 
             else:
                 print(f"Test passed for {asm_file}")
-                
+
 
 # -------------------- MAIN CALL --------------------
 
