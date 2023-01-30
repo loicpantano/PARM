@@ -1,34 +1,70 @@
-# Projet PARM SI3
-#
-Voir la documentation en PDF dans le dossier `doc`.
+# Polytech ARM-based embedded processor
 
-## En-têtes C
+## 📋 Instructions we had to follow
 
-| Programme | Description |
+By using [Logisim](proc/logisim/), we firstly had to make a [CPU](proc/) (a simplified one). To test it, we have [some very basic C snippets](c/) which can be compiled by the CPU into Assembly. Next, we had to make [a program](asm/) which can translate assembly language (ARMv7) into machine code.
+
+You can learn more about Logisim, ARMv7 and the whole Cortex-M0 family of processors in the [docs](docs/) folder.
+
+## ⚙️ Compile C to ARM Assembly
+
+To check whether our CPU works or not, we need to compile these C programs and compare each other.
+
+Install the `libc6-armel-cross`, `libc6-dev-armel-cross`, `binutils-arm-linux-gnueabi` and `libncurses5-dev` packages by using the following command:
+
+```bash
+sudo apt-get install libc6-armel-cross libc6-dev-armel-cross binutils-arm-linux-gnueabi libncurses5-dev
+```
+
+Then, install `gcc` and `g++` to support ARM:
+
+```bash
+sudo apt-get install gcc-arm-linux-gnueabi g++-arm-linux-gnueabi
+```
+
+Finally, you can compile like this:
+
+```bash
+arm-linux-gnueabi-gcc hello.c -S -mtune=cortex-m0 -march=armv7-m -mthumb -fomit-frame-pointer -o hello.s
+```
+
+## 📽️ Presentation
+
+See the [presentation](presentation/) folder for more details.
+
+## 🧾 Additional informations
+
+### C Headers
+
+| Program | Description |
 |-|-|
-| crypto | Cryptographie |
-| fixed | Nombres décimaux à virgule fixe |
-| math | Outils mathématiques |
-| parm | En-tête principale |
-| stdio | Entrées/sorties textuelles (clavier, terminal) |
-| string | Implémentation basique de chaînes |
-| string2 | Autre implémentation basique de chaînes |
-| trigo | Fonctions trigonométriques (séries de Taylor) |
-| utils | Outils de débogage |
-| video | Écran matriciel |
+| crypto | Cryptography |
+| fixed | Fixed Point Decimal Numbers |
+| math | Mathematical tools |
+| parm | Main Header |
+| stdio | Text Input/Output (keyboard, terminal) |
+| string | Basic implementation of strings |
+| string2 | Other basic implementation of strings |
+| trigo | Trigonometric functions (Taylor series) |
+| utils | Debugging Tools |
+| video | Matrix screen |
 
-## Programmes fournis en exemple
+### C programs
 
-### Programmes C
-
-| Programme | Description |
+| Program | Description |
 |-|-|
-| calckeyb		| Calculatrice avec clavier et terminal                                                    |
-| calculator	| Calculatrice avec DIP-switches                                                           |
-| simple_add | Effectue l'addition de deux variables et l'affiche dans RES
-| testfp		| Démonstration des macros de nombres à virgule fixe                                       |
-| tty			| Affiche "Projet PARM" dans le terminal                                                     |
+| calckeyb| Calculator with keyboard and terminal |
+| calculator | Calculator with DIP-switches |
+| simple_add | Adds two variables and displays it in RES |
+| testfp | Demonstrate fixed-point number macros |
+| tty | Display "Project PARM" in terminal |
 
-## MMIO
+### MMIO
 
-Voir `parm.h` pour la documentation technique des broches.
+See `parm.h` for the pins documentation.
+
+## ✒️ Authors
+
+* Marc PINET - [marcpinet](https://github.com/marcpinet)
+* Loïc PANTANO - [loicpantano](https://github.com/loicpantano)
+* Arthur RODRIGUEZ - [rodriguezarthur](https://github.com/rodriguezarthur)
